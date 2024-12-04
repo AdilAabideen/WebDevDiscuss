@@ -1,0 +1,127 @@
+/* CSS for User_post page  */
+
+/* Disables Scrolling */
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; 
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.border-right {
+    border-right: 1px solid #ccc;
+}
+
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-title {
+    color: #061237;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #061237;
+    font-weight: 300;
+}
+
+.badge.tag {
+    background-color: #061237;
+    color: #ffffff;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-weight: 500;
+}
+
+.badge.tag:hover {
+    background-color: #003366;
+}
+
+h2 {
+    font-weight: 700;
+    border-bottom: 2px solid #061237;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+    background-color: #e2e6ea;
+    transform: scale(1.01);
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #061237;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    color: #ffffff;
+}
+
+.text-muted {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.unfollow {
+    background-color: red;
+    color: #ffffff;
+    font-size: 0.7rem;
+    border-radius: 10px;
+    padding: 4px 8px;
+    font-weight: 600;
+    border: none;
+}
+
+/* Default height and scroll */
+.posts-container {
+    overflow-y: auto;
+    height: calc(100vh - 200px);
+}
+
+/* classes for Responsiveness */
+@media (max-width: 768px) {
+    .posts-container {
+        height: auto; 
+        overflow-y: auto;
+        max-height: 100vh;
+    }
+
+    .col-md-4 {
+        border-right: none;
+    }
+
+    .mb-3.mb-md-0 {
+        margin-bottom: 20px !important;
+    }
+
+    /* Allow Scrolling on Mobile */
+    body {
+        overflow: scroll;
+    }
+}

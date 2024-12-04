@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/addpost.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="overflow-y: auto; height: calc(100vh - 200px);">
+    <h2 class="mb-4">Add New Post</h2>
+
+    <!-- This Displays Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert alert-success" role="alert">
+            <p>{{ messages[0] }}</p>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Form to take in data for a Post -->
+    <form method="POST" action="{{ url_for('addpost') }}">
+        {{ form.hidden_tag() }}
+
+        <!-- Title Field -->
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            {{ form.title(class="form-control", id="title", placeholder="Enter your post title") }}
+            {% for error in form.title.errors %}
+             <!-- If Error occurs -->
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Tags Field, Comma Seperated -->
+        <div class="mb-3">
+            <label for="tags" class="form-label">Tags</label>
+            {{ form.tags(class="form-control", id="tags", placeholder="Enter tags (comma-separated)") }}
+            {% for error in form.tags.errors %}
+            <!-- If Error occurs -->
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Description Field -->
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            {{ form.description(class="form-control", id="description", rows=4, placeholder="Write your post description here") }}
+            {% for error in form.description.errors %}
+            <!-- If Error occurs -->
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Code Snippet Field -->
+        <div class="mb-3">
+            <label for="codeSnippet" class="form-label">Code Snippet</label>
+            {{ form.code_snippet(class="form-control", id="codeSnippet", rows=4, placeholder="Write your code snippet here") }}
+            {% for error in form.code_snippet.errors %}
+            <!-- If Error occurs -->
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit Post</button>
+    </form>
+</div>
+{% block custom_js %}
+<script src="{{ url_for('static', filename='js/addpost.js') }}"></script>
+{% endblock %}
+{% endblock %}

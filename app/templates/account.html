@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="account-container" style="overflow-y: auto; height: calc(100vh - 100px);">
+    <h1 class="account-title">Account</h1>
+
+    <!-- Section for Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        {% set category, message = messages[-1] %}
+        <div class="flash-messages">
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Section to Change Name -->
+    <form action="{{ url_for('update_name') }}" method="POST">
+        <!-- CSRF -->
+        {{ name_form.hidden_tag() }}
+        <div class="account-section">
+            <label class="account-label">Change Name</label>
+            <p class="account-display">{{ user.firstname }} {{ user.lastname }}</p>
+            <div class="row g-3">
+                <!-- Firstname -->
+                <div class="col-md-6">
+                    {{ name_form.firstname(class="account-form-control", placeholder="First Name", required=True, maxlength=50) }}
+                </div>
+                <!-- Secondname -->
+                <div class="col-md-6">
+                    {{ name_form.lastname(class="account-form-control", placeholder="Last Name", required=True, maxlength=50) }}
+                </div>
+            </div>
+            <!-- Submit Button -->
+            {{ name_form.submit(class="account-btn-submit") }}
+        </div>
+    </form>
+
+    <!-- Section to change Email -->
+    <form action="{{ url_for('update_email') }}" method="POST" onsubmit="return validateEmailForm()">
+         <!-- CSRF -->
+        {{ email_form.hidden_tag() }}
+        <div class="account-section">
+            <label class="account-label">Change Email</label>
+            <p class="account-display">{{ user.email }}</p>
+            <div class="row g-3">
+                <!-- email -->
+                <div class="col-md-6">
+                    {{ email_form.email(class="account-form-control", placeholder="Email", required=True) }}
+                </div>
+                <!-- Confirm Email -->
+                <div class="col-md-6">
+                    {{ email_form.confirm_email(class="account-form-control", placeholder="Confirm Email", required=True) }}
+                </div>
+            </div>
+            <!-- Submit Button -->
+            {{ email_form.submit(class="account-btn-submit") }}
+        </div>
+    </form>
+
+    <!-- Section to change Password -->
+    <form action="{{ url_for('update_password') }}" method="POST" onsubmit="return validatePasswordForm()">
+        <!-- CSRF -->
+        {{ password_form.hidden_tag() }}
+        <div class="account-section">
+            <label class="account-label">Change Password</label>
+            <div class="row g-3">
+                <!-- Old Password -->
+                <div class="col-md-4">
+                    {{ password_form.old_password(class="account-form-control", placeholder="Old Password", required=True, minlength=8) }}
+                </div>
+                <!-- New Password -->
+                <div class="col-md-4">
+                    {{ password_form.new_password(class="account-form-control", placeholder="New Password", required=True, minlength=8) }}
+                </div>
+                <!-- Confirm New Password -->
+                <div class="col-md-4">
+                    {{ password_form.confirm_new_password(class="account-form-control", placeholder="Confirm New Password", required=True, minlength=8) }}
+                </div>
+            </div>
+            <!-- Submit Button -->
+            {{ password_form.submit(class="account-btn-submit") }}
+        </div>
+    </form>
+
+    <!-- Section to change Username -->
+    <form action="{{ url_for('update_username') }}" method="POST" onsubmit="return validateUsernameForm();">
+        <!-- CSRF -->
+        {{ username_form.hidden_tag() }}
+        <div class="account-section">
+            <label class="account-label">Change Username</label>
+            <p class="account-display">{{ user.username }}</p>
+            <div class="row g-3">
+                <!-- Username -->
+                <div class="col-md-6">
+                    {{ username_form.username(class="account-form-control", placeholder="New Username") }}
+                </div>
+                <!-- Confirm Username -->
+                <div class="col-md-6">
+                    {{ username_form.confirm_username(class="account-form-control", placeholder="Confirm Username") }}
+                </div>
+            </div>
+            <!-- Submit -->
+            {{ username_form.submit(class="account-btn-submit") }}
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
+{% endblock %}
+{% block custom_js %}
+<script src="{{ url_for('static', filename='js/account.js') }}"></script>
+{% endblock %}
+

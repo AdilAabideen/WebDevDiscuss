@@ -1,0 +1,82 @@
+/* CSS for navbar and general CSS for whole Page */
+
+/* Disable Scrolling in main body */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #061237;
+    overflow: hidden; 
+}
+
+/* Hiding Scrollbars for multiple browsers */
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+*::-webkit-scrollbar {
+    display: none; 
+}
+
+/* CSS for Navbar */
+
+
+.navbar {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    width: 100%;
+    border-bottom: 1px solid #ddd; 
+}
+
+.navbar-brand {
+    font-family: "Inter", Courier, monospace;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #061237 !important;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 600; 
+    margin-right: 1.5rem;
+    color: #061237 !important;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #003366; 
+    transform: scale(1.1); 
+}
+
+.btn-primary {
+    background-color: #061237; 
+    border-color: #061237;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.5rem;
+    color: #ffffff; 
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin-right: 1.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #003366; 
+    transform: scale(1.05); 
+}
+
+/* Css To Make it responsive  */
+@media (max-width: 768px) {
+    /* Navbar */
+
+    .navbar-nav {
+        width: 100%;
+        align-items: flex-start !important;
+    }
+
+    .navbar-brand{
+        font-size: 1.3rem;
+    }
+
+    /* Button */
+    .btn-primary {
+        margin-bottom: 0.8rem;
+    }
+}

@@ -1,0 +1,108 @@
+/* CSS for Home Page */
+
+.cont {
+    width: 80%;
+}
+.hero-container {
+    margin-top: 5%;
+    padding: 5%;
+}
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #061237;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 1rem 0;
+    color: #061237;
+    opacity: 60%;
+}
+
+.hero-subtitle-2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 1rem 0;
+    color: #061237;
+    opacity: 60%;
+}
+
+.btn-primary-2 {
+    background-color: #061237;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+
+}
+
+.btn-primary:hover {
+    background-color: #003366;
+}
+
+/* Medium screens  */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-subtitle-2 {
+        font-size: 1.8rem;
+    }
+
+    .btn-primary-2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Small screens  */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-subtitle-2 {
+        font-size: 1.5rem;
+    }
+
+    .btn-primary-2 {
+        font-size: 1.5rem;
+    }
+
+    .cont {
+        width: 90%;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-subtitle-2 {
+        font-size: 1.2rem;
+    }
+
+    .btn-primary-2 {
+        font-size: 1.2rem;
+    }
+
+    .cont {
+        width: 100%;
+    }
+}

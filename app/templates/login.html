@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - WebDev Club</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% block custom_js %}
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+    {% endblock %}
+</head>
+<body >
+    <!-- Grid format, 3 rows  -->
+    <div class="container vh-100 d-flex flex-column justify-content-between">
+        <!-- Top Row with information -->
+        <div class="row text-center my-4">
+            <h1 class="signup-logo">./WebDevDiscuss</h1>
+            <p class="fs-5 text-secondary my-0">Hi! Welcome back to the WebDev Club</p>
+            <p class="fs-5 text-secondary my-0">WebDevDiscuss strives to be the number 1 forum and discussion website for Web Development Questions</p>
+        </div>
+
+        <!-- Middle Row with login form -->
+        <div class="row justify-content-center">
+            <div class="col-md-6 bg-white p-4 ">
+
+                <!-- This section shows any flash messages returned -->
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    {% set category, message = messages[-1] %}
+                    <div class="alert alert-{{ category }} text-center" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+                {% endwith %}
+
+                <!-- Login Form Section -->
+                <form action="{{ url_for('login') }}" method="POST" onsubmit="return validateLoginForm(event);">
+                    {{ form.hidden_tag() }}
+                    
+                    <!-- Email Field -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-bold">Email</label>
+                        {{ form.email(class="form-control", id="email", placeholder="Enter your email") }}
+                    </div>
+                    
+                    <!-- Password Field -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-bold">Password</label>
+                        {{ form.password(class="form-control", id="password", placeholder="Enter your password") }}
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="signup-btn">Log In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bottom Row with redirect link if they do not have an account -->
+        <div class="row text-center mb-4">
+            <p class=" signup-footer">Dont Have an Account? <a href="{{ url_for('signup') }}" class="text-primary fw-bold">Sign Up</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+/* CSS for Login Page */
+
+body {
+    background-color: white; 
+    font-family: 'Inter', sans-serif;
+}
+
+
+.signup-logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #003366;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.signup-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+
+
+.signup-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.signup-footer a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.signup-footer a:hover {
+    text-decoration: underline;
+}
+
+.signup-input {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    width: 100%;
+    border: #003366 1px;
+}
+
+.custom-label {
+    color: #061237;
+    font-weight: bold;
+}
+
+.signup-btn {
+    background-color: #003366;
+    color: #ffffff;
+    font-size: 1.2rem;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 0.6rem;
+}
+
+.signup-btn:hover {
+    background-color: #003366;
+}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+{% endblock %}
+
+{% block content %}
+<!-- <div class="hero-section">
+    <h1 class="hero-title">The All in one place for all Web Developers</h1>
+    <p class="hero-subtitle">Got a Problem? Write a post and let the community help</p>
+    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg">Login</a>
+</div> -->
+<div class="d-flex justify-content-center hero-container vh-100 w-100">
+    <div class="text-center cont">
+        <h1 class="hero-title">The All-in-one place for all Web Developers</h1>
+        <p class="hero-subtitle">WebDevDiscuss is an innovative and collaborative platform designed specifically for web developers of all skill levels. This application serves as a centralized hub where developers can seek solutions, share knowledge, and grow together as a community. Whether you’re a beginner struggling with your first HTML layout or a seasoned programmer troubleshooting complex backend logic, WebDevDiscuss provides the perfect environment to connect, learn, and solve problems.</p>
+        <p class="hero-subtitle-2">Got a Problem? Write a post and let the community help</p>
+        <a href="/login" class="btn btn-primary-2">Login</a>
+    </div>
+</div>
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+{% endblock %}

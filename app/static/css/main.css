@@ -1,0 +1,127 @@
+/* CSS for main page */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+.border-right {
+    border-right: 1px solid #ccc;
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.btn-outline-primary {
+    border-color: #061237;
+    color: #061237;
+}
+.input-group-text {
+    background-color: white;
+    border: 1.5px solid #061237;
+    border-right: none;
+    border-radius: 30px 0 0 30px;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+}
+.form-control {
+    border: 1.5px solid #061237;
+    border-left: none;
+    border-radius: 0 30px 30px 0;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+}
+.form-control::placeholder {
+    color: rgba(6, 18, 55, 0.5);
+}
+.btn-outline-primary:hover {
+    background-color: #061237;
+    color: white;
+}
+.like-icon {
+    font-size: 1.5rem;
+    color: #6c757d; 
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.like-icon.liked {
+    color: #dc3545; 
+    transform: scale(1.2);
+}
+
+
+/* CSS for Post Card */
+
+.card {
+    background-color: #ffffff; 
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+
+.card-title {
+    color: #061237;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.likes {
+    color: #061237;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+.badge.tag {
+    background-color: #061237;
+    color: #ffffff;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-weight: 500;
+    
+}
+
+
+.badge.tag:hover {
+    background-color: #003366;
+}
+
+
+.card-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #061237;
+    font-weight: 300;
+}
+
+
+.text-muted {
+    color: #6c757d;
+}
+
+.card .d-flex {
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.card .d-flex p {
+    margin: 0;
+}
+
+/* Media Queries to make it responsive */
+@media (max-width: 768px) {
+
+    .subm-btn {
+        margin-bottom: 0 !important ;
+    }
+
+    .badge.tag {
+        margin-top: 5px;
+    }
+}

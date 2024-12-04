@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid h-100">
+
+    <!-- 3 Collumns  -->
+    <div class="row h-100">
+
+        <!-- Posts by the User -->
+        <div class="col-md-4 col-12 border-right p-4 mb-3 mb-md-0">
+            <h2 class="mb-3 text-center">Your Posts</h2>
+            <div class="posts-container">
+
+                <!-- Card for each post -->
+                {% for post in user.posts %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.body[:150] }}{% if post.body|length > 150 %}...{% endif %}</p>
+                        <div class="mb-3">
+                            {% for tag in post.tags.split(",") %}
+                            <span class="badge tag">{{ tag.strip() }}</span>
+                            {% endfor %}
+                        </div>
+                        <p class="text-muted mb-2">Likes: {{ post.likes }}</p>
+
+                        <!-- Redirects to Edit Post -->
+                        <button class="btn btn-warning w-100" onclick="window.location.href='/editpost/{{ post.id }}';">Edit Post</button>
+                    </div>
+                </div>
+                {% else %}
+                <p class="text-muted">You have not created any posts yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Users Liked Posts -->
+        <div class="col-md-4 col-12 border-right p-4 mb-3 mb-md-0">
+            <h2 class="mb-3 text-center">Posts You Liked</h2>
+            <div class="posts-container">
+
+                <!-- For each Post show Card -->
+                {% for post in user.liked_posts %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.body[:150] }}{% if post.body|length > 150 %}...{% endif %}</p>
+                        <div class="mb-3">
+                            {% for tag in post.tags.split(",") %}
+                            <span class="badge tag">{{ tag.strip() }}</span>
+                            {% endfor %}
+                        </div>
+                        <p class="text-muted mb-2">By {{ post.user.username }} | Likes: {{ post.likes }}</p>
+                    </div>
+                </div>
+                {% else %}
+                <p class="text-muted">You have not liked any posts yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- People/Friends that the User is Following -->
+        <div class="col-md-4 col-12 p-4">
+            <h2 class="mb-3 text-center">People You Follow</h2>
+            <ul class="list-group posts-container">
+                {% for friend in user.followed %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <p class="my-2">{{ friend.username }}</p>
+
+                    <!-- Button to Unfollow -->
+                    <button class="unfollow" data-user-id="{{ friend.id }}">Unfollow</button>
+                </li>
+                {% else %}
+                <p class="text-muted text-center">You are not following anyone yet.</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user_post.css') }}">
+{% endblock %}
+{% block custom_js %}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{{ url_for('static', filename='js/user_post.js') }}"></script>
+{% endblock %}
+{% endblock %}

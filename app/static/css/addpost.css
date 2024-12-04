@@ -1,0 +1,31 @@
+/* CSS for Add Post page */
+
+h2 {
+    color: #061237;
+    font-weight: 500;
+    font-size: 56px;
+}
+
+label {
+    color: #061237;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.form-control {
+    border: 1px solid #061237;
+    border-radius: 10px;
+}
+
+
+.btn-primary {
+    background-color: #061237;
+    border-color: #061237;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #003366;
+    border-color: #003366;
+}
